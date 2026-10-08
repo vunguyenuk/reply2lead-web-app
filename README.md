@@ -53,6 +53,13 @@ automatically. Press **Ctrl + C** in the terminal to stop.
 `dist/` is plain static files, so you can host it anywhere: Netlify, Vercel, S3 or any web
 server. Links use `#/…`, so no server rewrite rules are needed.
 
+### Deploy on Vercel
+
+`vercel.json` at the repo root tells Vercel to build the app in `app/` and serve `app/dist`.
+Push to GitHub and Vercel deploys automatically; no dashboard settings are needed. If you set
+**Root Directory** in the Vercel dashboard, leave it empty, or set it to `app` and delete
+`vercel.json`.
+
 ### Troubleshooting
 
 | Problem | Fix |
