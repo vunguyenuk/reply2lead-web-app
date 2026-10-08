@@ -1,0 +1,118 @@
+@import "@fontsource/inter-tight/400.css";
+@import "@fontsource/inter-tight/500.css";
+@import "@fontsource/inter-tight/600.css";
+@import "tailwindcss";
+
+/*
+ * Design tokens — copied 1:1 from the Figma variables of
+ * "e-Signature Documents Dashboard" (node 203:5).
+ * Do not add new colours/sizes here without a matching Figma variable.
+ */
+@theme {
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+
+  /* Greyscale */
+  --color-grey-0: #f8fafc;
+  --color-grey-25: #f2f5f9;
+  --color-grey-50: #e3e8ef;
+  --color-grey-100: #cdd5e0;
+  --color-grey-200: #97a3b6;
+  --color-grey-300: #677489;
+  --color-grey-400: #4a5567;
+  --color-grey-500: #364153;
+  --color-grey-600: #20293a;
+  --color-grey-800: #030616;
+  --color-grey-900: #0a0a0a;
+
+  /* Brand + accents */
+  --color-primary-200: #35966a;
+  --color-secondary-0: #f8f5ff;
+  --color-secondary-200: #7a4df5;
+  --color-sky-200: #116b97;
+  --color-warning-100: #ffbe4c;
+  --color-success-200: #1fb620;
+
+  /* Effects */
+  --shadow-xs: 0px 1px 2px 0px rgba(13, 13, 18, 0.06);
+  --shadow-card: 0px 0px 0px 1px rgba(13, 13, 18, 0.06), 0px 1px 2px 0px rgba(13, 13, 18, 0.06);
+  --shadow-sm: 0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0px 12px 16px -4px rgba(13, 13, 18, 0.08), 0px 4px 6px -2px rgba(13, 13, 18, 0.03);
+  --shadow-toast: 0px 9px 42.8px 0px rgba(13, 13, 18, 0.06);
+  --shadow-tab: 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
+  --inset-shadow-btn: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.05);
+  --drop-shadow-btn: 0px 1px 1px rgba(13, 13, 18, 0.06);
+}
+
+/* Typography scale (Figma text styles) */
+@utility text-h3 {
+  font-size: 32px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+@utility text-h4 {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+@utility text-h6 {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 1.55;
+}
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 1.6;
+}
+@utility text-body-md-tight {
+  font-size: 16px;
+  line-height: 1.55;
+}
+@utility text-body-sm {
+  font-size: 14px;
+  line-height: 1.55;
+}
+@utility text-body-xs {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--color-grey-0);
+    color: var(--color-grey-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  button {
+    cursor: pointer;
+    font: inherit;
+  }
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-grey-300);
+  }
+  /* Hide scrollbars everywhere — areas still scroll with wheel / trackpad / touch */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}

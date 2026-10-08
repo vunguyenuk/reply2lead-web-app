@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Reply2Lead</title>
+    <meta name="description" content="Turn Facebook comments into customers: AI assistant replies, messages and hands off to your shop." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    
+    <!-- Inter is the product face (design/r2l-wireframes.fig). Be Vietnam Pro stays
+         loaded as the fallback: it is drawn for Vietnamese, so stacked diacritics
+         (ệ, ẫ, ở) keep their spacing if Inter is ever unavailable. -->
+    
+    <meta name="theme-color" content="#ffffff" />
+
+    <script>
+      // Apply the stored theme before React mounts so there is no flash.
+      // Tailwind v4 keys dark mode off the `dark` class, which ThemeProvider also toggles.
+      (function () {
+        var stored = localStorage.getItem('r2l-theme-choice');
+        document.documentElement.classList.toggle('dark', stored === 'dark');
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-88rVPitm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DfiWNVC_.css">
+  <link rel="stylesheet" href="./demo-fonts/fonts.css" /><meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; worker-src 'self' blob:; frame-src 'none'; form-action 'none'" /></head>
+  <body>
+    <noscript>Reply2Lead needs JavaScript enabled.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
