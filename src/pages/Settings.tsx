@@ -549,9 +549,9 @@ export default function Settings() {
             <SectionTitle>Current plan</SectionTitle>
             <div className="grid w-full grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 px-4 py-6">
               {[
-                { name: 'Business', price: '£49 / month', d: '250 AI credits · 3 team seats · API & webhooks', current: false },
-                { name: 'Agency', price: '£149 / month', d: '1,000 AI credits · 10 client accounts · bring your own AI key', current: true },
-                { name: 'Agency Unlimited', price: '£399 / month', d: '2,500 AI credits · unlimited clients · priority support', current: false },
+                { name: 'Business', price: '$49 / month', d: '250 AI credits · 3 team seats · API & webhooks', current: false },
+                { name: 'Agency', price: '$149 / month', d: '1,000 AI credits · 10 client accounts · bring your own AI key', current: true },
+                { name: 'Agency Unlimited', price: '$399 / month', d: '2,500 AI credits · unlimited clients · priority support', current: false },
               ].map((p) => (
                 <AppCard
                   key={p.name}

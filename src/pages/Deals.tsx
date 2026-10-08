@@ -9,7 +9,7 @@ import { DataTable, MutedText, TitleCell } from '../components/table'
 import { contactById, contacts, dealStages, deals as seed, type DealStage } from '../data/demo'
 
 const tone: Record<DealStage, StatusTone> = { new: 'neutral', qualified: 'sky', proposal: 'warning', won: 'success', lost: 'neutral' }
-const money = (n: number) => `£${n.toLocaleString()}`
+const money = (n: number) => `$${n.toLocaleString()}`
 
 export default function Deals() {
   const go = useNavigate()
@@ -158,7 +158,7 @@ export default function Deals() {
       >
         <TextInput label="Deal name" placeholder="e.g. Brooks Café — 30 bowls" />
         <Select label="Contact" options={contacts.map((c) => c.name)} />
-        <TextInput label="Value (£)" type="number" placeholder="0" />
+        <TextInput label="Value ($)" type="number" placeholder="0" />
         <Select label="Stage" options={dealStages.map((s) => ({ value: s.key, label: s.label }))} />
         <Select label="Owner" options={['Ray (AI)', 'Alex Morgan', 'Jamie Chen']} />
       </Drawer>

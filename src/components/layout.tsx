@@ -61,6 +61,10 @@ import {
   RiServerFill,
   RiCameraLensLine,
   RiCameraLensFill,
+  RiUser3Line,
+  RiMoonLine,
+  RiCheckboxCircleLine,
+  RiLogoutBoxRLine,
   type RemixiconComponentType,
 } from '@remixicon/react'
 import { useState } from 'react'
@@ -134,6 +138,8 @@ export function Sidebar() {
   const go = useNavigate()
   const [closed, setClosed] = useState<Record<string, boolean>>({})
   const [creditCard, setCreditCard] = useState(true)
+  const [userMenu, setUserMenu] = useState(false)
+  const [away, setAway] = useState(false)
   const [acct, setAcct] = useState(accounts[0])
   const [acctOpen, setAcctOpen] = useState(false)
   const item = (n: NavItem) => (
@@ -270,21 +276,68 @@ export function Sidebar() {
             />
             <button
               type="button"
-              onClick={() => go('/settings/profile')}
-              className="flex w-full items-center gap-2 overflow-clip border-t border-grey-50 py-4 pr-0.5 pl-2 text-left"
+              aria-haspopup="menu"
+              aria-expanded={userMenu}
+              onClick={() => setUserMenu((o) => !o)}
+              className={cx('flex w-full items-center gap-2 overflow-clip rounded-[6px] border-t border-grey-50 py-4 pr-0.5 pl-2 text-left hover:bg-grey-25/60', userMenu && 'bg-grey-25')}
             >
               <span className="relative">
                 <Avatar src={me.avatar} name={me.name} size={24} />
                 <span className="absolute -right-0.5 -bottom-0.5 rounded-full border border-white">
-                  <StatusDot tone="success" />
+                  <StatusDot tone={away ? 'warning' : 'success'} />
                 </span>
               </span>
               <span className="flex min-w-0 flex-1 flex-col">
                 <span className="truncate text-body-sm font-medium text-grey-400">{me.name}</span>
               </span>
-              <span className="text-body-xs text-grey-300">Online</span>
+              <span className="text-body-xs text-grey-300">{away ? 'Away' : 'Online'}</span>
               <img src={chevronUpDown} width={16} height={16} alt="" />
             </button>
+            {userMenu && (
+              // Account menu — Figma "Dropdown Menu" (r10, Greyscale/100 border, Shadow/Large, p8), opens upward
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setUserMenu(false)} />
+                <div role="menu" className="fixed bottom-[68px] left-3 z-50 flex w-[236px] flex-col overflow-clip rounded-[10px] border border-grey-100 bg-white p-2 shadow-lg">
+                  <div className="flex items-center gap-2 px-2 pt-1 pb-2">
+                    <Avatar src={me.avatar} name={me.name} size={32} />
+                    <div className="flex min-w-0 flex-col">
+                      <p className="truncate text-body-sm font-semibold text-grey-800">{me.name}</p>
+                      <p className="truncate text-body-xs text-grey-300">{me.email}</p>
+                    </div>
+                  </div>
+                  <div className="mb-1 h-px w-full bg-grey-50" />
+                  {(
+                    [
+                      [RiUser3Line, 'Profile', () => go('/settings/profile')],
+                      [RiSettingsLine, 'Settings', () => go('/settings/profile')],
+                      [away ? RiCheckboxCircleLine : RiMoonLine, away ? 'Set as online' : 'Set as away', () => setAway((a) => !a)],
+                      [RiQuestionLine, 'Help & tour', () => startTour()],
+                    ] as const
+                  ).map(([I, l, fn]) => (
+                    <button
+                      key={l}
+                      role="menuitem"
+                      type="button"
+                      onClick={() => (setUserMenu(false), fn())}
+                      className="flex w-full items-center gap-2 rounded-[6px] py-2 pr-0.5 pl-2 text-left hover:bg-grey-25"
+                    >
+                      <I size={16} className="shrink-0 text-grey-400" />
+                      <span className="text-body-sm font-medium text-grey-500">{l}</span>
+                    </button>
+                  ))}
+                  <div className="my-1 h-px w-full bg-grey-50" />
+                  <button
+                    role="menuitem"
+                    type="button"
+                    onClick={() => (setUserMenu(false), go('/sign-in'))}
+                    className="flex w-full items-center gap-2 rounded-[6px] py-2 pr-0.5 pl-2 text-left hover:bg-grey-25"
+                  >
+                    <RiLogoutBoxRLine size={16} className="shrink-0 text-grey-400" />
+                    <span className="text-body-sm font-medium text-grey-500">Log out</span>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

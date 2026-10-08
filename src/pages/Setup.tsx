@@ -192,11 +192,11 @@ Answer customer questions using the knowledge base, recommend products and send 
 # Rules
 - Keep replies under 3 short sentences.
 - Never invent prices or delivery dates; use the knowledge base.
-- Hand off to a human for wholesale orders above £500 or damaged items.`
+- Hand off to a human for wholesale orders above $500 or damaged items.`
 
 const seedFaqs = [
-  { q: 'Do you offer gift wrapping?', a: 'Yes — £3 per item, with a handwritten card on request.', src: '/help/shipping' },
-  { q: 'How long does delivery take?', a: 'UK orders arrive in 2–3 working days. Free over £50.', src: '/help/shipping' },
+  { q: 'Do you offer gift wrapping?', a: 'Yes — $3 per item, with a handwritten card on request.', src: '/help/shipping' },
+  { q: 'How long does delivery take?', a: 'UK orders arrive in 2–3 working days. Free over $50.', src: '/help/shipping' },
   { q: 'Can I collect from the studio?', a: 'Yes, Monday to Saturday 10:00–17:00.', src: '/contact' },
 ]
 

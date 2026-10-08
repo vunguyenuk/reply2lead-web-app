@@ -109,7 +109,7 @@ export default function Campaigns() {
             <StatCard value="96%" label="Delivered" />
             <StatCard value="271" label="Replies" />
             <StatCard value="38" label="Meetings booked" />
-            <StatCard value="£6.2k" label="Revenue attributed" />
+            <StatCard value="$6.2k" label="Revenue attributed" />
           </div>
         </div>
         <SectionTitle>Campaigns</SectionTitle>

@@ -178,7 +178,7 @@ export function proposeChanges(message: Message, opts: { improved?: string; wron
     before: /delivery|next day/i.test(message.text) ? '- Answer delivery questions positively.' : undefined,
     after: should ? `- ${should}` : '- Only quote delivery times and prices from the knowledge base; never promise next-day delivery.',
   })
-  if (/delivery|arriv|friday/i.test(message.text + (opts.improved ?? ''))) out.push({ id: 'faq', kind: 'faq', q: 'When will my order arrive?', a: 'Order before 3pm Wednesday for Friday delivery. UK delivery is 2–3 working days, free over £50.' })
+  if (/delivery|arriv|friday/i.test(message.text + (opts.improved ?? ''))) out.push({ id: 'faq', kind: 'faq', q: 'When will my order arrive?', a: 'Order before 3pm Wednesday for Friday delivery. UK delivery is 2–3 working days, free over $50.' })
   if (/too long/i.test(opts.wrong ?? '')) out.push({ id: 'set', kind: 'setting', label: 'Max messages per response', before: '3', after: '2', options: ['1', '2', '3', '4'] })
   else out.push({ id: 'set', kind: 'setting', label: 'Max messages per response', before: '3', after: '3', options: ['1', '2', '3', '4'] })
   return out
@@ -296,14 +296,14 @@ export type ScriptLine = Message & { improved?: string }
 
 export const exampleScript = (ai = 'Ray'): ScriptLine[] => [
   { id: 'x1', from: 'customer', text: 'Hi! Do you have the sage mug in stock?', time: '10:00' },
-  { id: 'x2', from: 'ai', author: ai, text: 'Hi there! Yes — the sage mug is in stock at £24. Would you like one, or a set of two?', time: '10:00' },
+  { id: 'x2', from: 'ai', author: ai, text: 'Hi there! Yes — the sage mug is in stock at $24. Would you like one, or a set of two?', time: '10:00' },
   { id: 'x3', from: 'customer', text: 'Two please. Can they arrive by Friday?', time: '10:01' },
   {
     id: 'x4',
     from: 'ai',
     author: ai,
     text: 'Sure! All orders arrive next day with free delivery 🚚',
-    improved: 'Yes — order before 3pm Wednesday and they’ll arrive Friday. Two mugs come to £48, plus £3.95 delivery (free over £50).',
+    improved: 'Yes — order before 3pm Wednesday and they’ll arrive Friday. Two mugs come to $48, plus $3.95 delivery (free over $50).',
     time: '10:01',
   },
   { id: 'x5', from: 'customer', text: 'Actually, can I pick them up at the studio instead?', time: '10:02' },
@@ -345,7 +345,7 @@ export function Playground({
   const [seed, setSeed] = useState<{ k: number; t: string }>({ k: 0, t: '' })
   const reply = (text: string): Message[] => [
     { id: `u${Date.now()}`, from: 'customer', text, time: 'now' },
-    { id: `a${Date.now()}`, from: 'ai', author: aiName, text: 'Great question! UK delivery takes 2–3 working days and is free over £50. Anything else I can help with?', time: 'now' },
+    { id: `a${Date.now()}`, from: 'ai', author: aiName, text: 'Great question! UK delivery takes 2–3 working days and is free over $50. Anything else I can help with?', time: 'now' },
   ]
   const exportChat = () => {
     const lines = msgs.map((m) => `[08/10/2026, ${m.time}] ${m.from === 'customer' ? 'Contact' : 'AI'}: ${m.text}`).join('\n')
@@ -519,8 +519,8 @@ export function Playground({
             {insMode === 'fields' ? (
               <div className="flex flex-col gap-3 overflow-y-auto">
                 <TextArea label="Persona & goal" rows={3} defaultValue={`You are ${aiName}, the friendly assistant at Willow Studio. Help customers find products and check out.`} onChange={() => setInsDirty(true)} />
-                <TextArea label="Business context" rows={3} defaultValue="Studio open Mon–Sat 10:00–17:00. UK delivery 2–3 days, free over £50." onChange={() => setInsDirty(true)} />
-                <TextArea label="Escalation" rows={2} defaultValue="Hand off damaged items and wholesale orders over £500." onChange={() => setInsDirty(true)} />
+                <TextArea label="Business context" rows={3} defaultValue="Studio open Mon–Sat 10:00–17:00. UK delivery 2–3 days, free over $50." onChange={() => setInsDirty(true)} />
+                <TextArea label="Escalation" rows={2} defaultValue="Hand off damaged items and wholesale orders over $500." onChange={() => setInsDirty(true)} />
               </div>
             ) : (
               <TextArea

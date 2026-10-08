@@ -289,14 +289,14 @@ export default function AgentEditor() {
                 <TextArea label="Goal" rows={3} defaultValue="Answer product questions, recommend the right item, share prices and delivery times, and send a checkout link when the customer is ready." />
               </Collapsible>
               <Collapsible title="Business context" sub="Products, prices, opening hours, policies">
-                <TextArea rows={4} defaultValue="Studio: 12 Willow Lane, London. Open Mon–Sat 10:00–17:00. UK delivery 2–3 working days, free over £50. Gift wrapping £3 per item." />
+                <TextArea rows={4} defaultValue="Studio: 12 Willow Lane, London. Open Mon–Sat 10:00–17:00. UK delivery 2–3 working days, free over $50. Gift wrapping $3 per item." />
               </Collapsible>
               <Collapsible title="Conversation behavior" sub="Tone, length, emojis, questions to ask">
                 <Select label="Tone" options={['Friendly', 'Professional', 'Casual', 'Enthusiastic']} />
                 <TextArea label="Rules" rows={3} defaultValue={'- Max 2 sentences per message.\n- Ask one question at a time.\n- Use emojis sparingly.'} />
               </Collapsible>
               <Collapsible title="Escalation & wrap-up" sub="When to hand off and how to end a chat">
-                <TextArea label="Hand off to a human when" rows={3} defaultValue="The customer asks for a person, reports a damaged item, or requests a wholesale order above £500." />
+                <TextArea label="Hand off to a human when" rows={3} defaultValue="The customer asks for a person, reports a damaged item, or requests a wholesale order above $500." />
                 <TextArea label="Wrap-up" rows={2} defaultValue="Confirm next steps, thank the customer, and close the conversation." />
               </Collapsible>
               <Card className="w-full gap-2 p-4">

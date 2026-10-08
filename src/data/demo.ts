@@ -81,18 +81,18 @@ export const conversations: Conversation[] = [
     id: 'v1', contactId: 'c1', state: 'ai', aiOn: true, pinned: true, unread: 2, lastAt: '10:42', group: 'Today',
     messages: [
       { id: 'm1', from: 'customer', text: 'Hi Willow Studio! Can I order two sage mugs with gift wrapping for Friday?', time: '10:38' },
-      { id: 'm2', from: 'ai', author: 'Ray', text: 'Hi Emma! Yes — the sage mugs are in stock (£24 each) and gift wrapping is £3 per item. Order before 3pm Wednesday and they arrive Friday. Shall I send you the checkout link?', time: '10:39' },
+      { id: 'm2', from: 'ai', author: 'Ray', text: 'Hi Emma! Yes — the sage mugs are in stock ($24 each) and gift wrapping is $3 per item. Order before 3pm Wednesday and they arrive Friday. Shall I send you the checkout link?', time: '10:39' },
       { id: 'm3', from: 'customer', text: 'Perfect, please send it. Can you add a small card that says “Happy birthday Mum”?', time: '10:42' },
     ],
   },
   {
     id: 'v2', contactId: 'c2', state: 'human', aiOn: false, pinned: true, starred: true, assignee: 'Jamie Chen', unread: 0, lastAt: '09:15', group: 'Today',
-    handoffReason: 'Wholesale request above £500',
+    handoffReason: 'Wholesale request above $500',
     messages: [
       { id: 'm1', from: 'customer', text: 'Do you offer a discount for 30 ceramic bowls for our café?', time: '08:51' },
       { id: 'm2', from: 'ai', author: 'Ray', text: 'Great question, Oliver! For orders of 25+ pieces we offer trade pricing. I’m handing you to Jamie from our sales team, who will confirm the exact quote.', time: '08:52' },
       { id: 'm3', from: 'note', author: 'Ray', text: 'Handoff: wholesale request (30 × bowls). Customer runs Brooks Café in Bristol.', time: '08:52' },
-      { id: 'm4', from: 'agent', author: 'Jamie Chen', text: 'Hi Oliver, Jamie here. 30 bowls come to £540 with 15% trade discount, delivery included. Want me to reserve them?', time: '09:15' },
+      { id: 'm4', from: 'agent', author: 'Jamie Chen', text: 'Hi Oliver, Jamie here. 30 bowls come to $540 with 15% trade discount, delivery included. Want me to reserve them?', time: '09:15' },
     ],
   },
   {
@@ -108,7 +108,7 @@ export const conversations: Conversation[] = [
     id: 'v4', contactId: 'c4', state: 'ai', aiOn: true, scheduled: 'Today 16:20', unread: 0, lastAt: 'Yesterday', group: 'Yesterday',
     messages: [
       { id: 'm1', from: 'customer', text: 'How much is the linen table runner and do you ship to Bristol?', time: '16:20' },
-      { id: 'm2', from: 'ai', author: 'Ray', text: 'The linen runner is £38 and we ship to Bristol in 2–3 working days (free over £50). Would you like the natural or the sage colour?', time: '16:20' },
+      { id: 'm2', from: 'ai', author: 'Ray', text: 'The linen runner is $38 and we ship to Bristol in 2–3 working days (free over $50). Would you like the natural or the sage colour?', time: '16:20' },
     ],
   },
   {

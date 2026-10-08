@@ -44,7 +44,7 @@ function TierEditor({ t, onChange, onDelete }: { t: Tier; onChange: (t: Tier) =>
       <div className="grid grid-cols-[1fr_1fr_120px_1.4fr_auto] items-end gap-3 p-4">
         <TextInput label="Credits" type="number" value={t.credits} onChange={(e) => onChange({ ...t, credits: +e.target.value })} />
         <TextInput label="Price" type="number" value={t.price} onChange={(e) => onChange({ ...t, price: +e.target.value })} />
-        <Select label="Currency" value={t.currency} onChange={(e) => onChange({ ...t, currency: e.target.value })} options={['USD', 'GBP', 'EUR', 'VND']} />
+        <Select label="Currency" value={t.currency} onChange={(e) => onChange({ ...t, currency: e.target.value })} options={['USD']} />
         <TextInput label="Label (optional)" value={t.label} placeholder="e.g. Starter" onChange={(e) => onChange({ ...t, label: e.target.value })} />
         <IconButton icon={RiDeleteBin6Line} label="Delete tier" onClick={onDelete} />
       </div>
@@ -187,7 +187,7 @@ export default function Saas() {
               <div className="flex w-[560px] flex-col gap-4 px-4 py-6">
                 <TextInput label="Stripe restricted key" readOnly value="rk_test_51Pza7EG••••••••••••kE74" />
                 <TextInput label="Publishable key" readOnly value="pk_test_51Pza7EG••••••••••••4t18" />
-                <Select label="Default currency" options={['USD', 'GBP', 'EUR']} />
+                <Select label="Default currency" options={['USD']} />
                 <div className="flex items-center justify-between rounded-[8px] border border-grey-50 p-4">
                   <div className="flex flex-col gap-0.5">
                     <p className="text-body-sm font-semibold text-grey-800">Test mode</p>
